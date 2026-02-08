@@ -79,44 +79,44 @@
 
 // !=========================================================================!
 
-const allUsers = [
-  {
-    name: "Moore Hensley",
-    friends: ["Sharron Pace"]
-  },
-  {
-    name: "Sharlene Bush",
-    friends: ["Briana Decker", "Sharron Pace"]
-  },
-  {
-    name: "Ross Vazquez",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
-  },
-  {
-    name: "Elma Head",
-    friends: ["Goldie Gentry", "Aisha Tran"]
-  },
-  {
-    name: "Carey Barr",
-    friends: ["Jordan Sampson", "Eddie Strong"]
-  },
-  {
-    name: "Blackburn Dotson",
-    friends: ["Jacklyn Lucas", "Linda Chapman"]
-  },
-  {
-    name: "Sheree Anthony",
-    friends: ["Goldie Gentry", "Briana Decker"]
-  }
-];
+//const allUsers = [
+ // {
+ //   name: "Moore Hensley",
+ //   friends: ["Sharron Pace"]
+ // },
+ // {
+ //   name: "Sharlene Bush",
+ //   friends: ["Briana Decker", "Sharron Pace"]
+ // },
+ // {
+ //   name: "Ross Vazquez",
+ //   friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
+ // },
+ // {
+ //   name: "Elma Head",
+ //   friends: ["Goldie Gentry", "Aisha Tran"]
+ // },
+ // {
+ //   name: "Carey Barr",
+ //   friends: ["Jordan Sampson", "Eddie Strong"]
+ // },
+ // {
+ //   name: "Blackburn Dotson",
+ //   friends: ["Jacklyn Lucas", "Linda Chapman"]
+ // },
+ // {
+ //   name: "Sheree Anthony",
+ //   friends: ["Goldie Gentry", "Briana Decker"]
+ // }
+//];
 
-const getUsersWithFriend = (users, friendName) => {
-  return users.filter(user => {
-    return user.friends.includes(friendName);
-  });
-};
+//const getUsersWithFriend = (users, friendName) => {
+ // return users.filter(user => {
+ //   return user.friends.includes(friendName);
+ // });
+//};
 
-console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
+//console.log(getUsersWithFriend(allUsers, "Briana Decker"));
 // [
 //   {
 //     name: "Sharlene Bush",
@@ -128,7 +128,7 @@ console.log(getUsersWithFriend(allUsers, "Briana Decker"));
 //   }
 // ]
 
-console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+//console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
 // [
 //   {
 //     name: "Elma Head",
@@ -140,6 +140,34 @@ console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
 //   }
 // ]
 
-console.log(getUsersWithFriend(allUsers, "Adrian Cross" )); // []
+//console.log(getUsersWithFriend(allUsers, "Adrian Cross" )); // []
+//!=====================================================================
+class Storage {
+    #items;
+    constructor(initialItems) {
+        this.#items = initialItems;
+    }
+    getItems() {
+        return this.#items;
+        }
+        
+    
+    addItem(newItem) {
+            this.#items.push(newItem);
+       
+    }
+    removeItem(itemToRemove) {
+        this.#items = this.#items.filter(item => item !== itemToRemove);
+    }
+        
+}
 
 
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+
+storage.removeItem("Prolonger");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
